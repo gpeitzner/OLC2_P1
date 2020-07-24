@@ -1,0 +1,54 @@
+<?php
+#ARCHIVO BASICO
+main:
+$t0 = ("ARCHIVO BASICO\n");
+print($t0);
+print($t0[0]);
+print($t0[8]);
+print($t0[12]);
+unset($t0);
+print("\n");
+#-------------ingreso de datos------------
+print("Ingresa un numero: \n");
+print("\n");
+#$t1 = read();  #se debe habilitar para las pruebas en su aplicación
+$t1 = 1;
+print("\n");
+print("Ingreso un segundo numero: ");
+print("\n");
+#$t2 = read(); #se debe habilitar para las pruebas en su aplicación
+$t2 = 1;
+$t3 = $t1+$t2;
+print("La suma de los numeros es: ");
+print($t3);
+print("\n");
+$t3 = $t1-$t2;
+print("La resta de los numeros es: ");
+print($t3);
+print("\n");
+$t3 = $t1*$t2;
+print("La multiplicación de los numeros es: ");
+print($t3);
+print("\n");
+$t3 = $t1/$t2;
+if ( $t2 == 0 ) goto error;
+print("La division de los numeros es: ");
+print($t3);
+#--------------conversion--------------------
+ $t4 = (int)$t1;
+ print($t4);
+ print("\n");
+ $t4 = (float)$t3;
+ print($t4);
+ print("\n");
+ $t5 = $t4+1;
+ print("Resultado de la suma: \n");
+ print($t5);
+
+
+error: 
+print("\nERROR: no se puede realizar una divisi�n entre 0.'");
+
+
+exit;
+

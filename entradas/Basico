@@ -1,0 +1,115 @@
+main:
+  #--------------Struct--------------------------
+  $t1[0]['nombre']="Hugo";
+  $t1[0]['direccion']="zona 4";
+  $t1[0]['telefono'][0]=56457854;
+  $t1[0]['telefono'][0]=45784565;
+  #linea 2
+  $t1[1]['nombre']="Paco";
+  $t1[1]['direccion']="zona 8, villa nueva";
+  $t1[1]['telefono'][0]=56412854;
+  $t1[1]['telefono'][0]=45784125;
+  #linea 3
+  $t1[2]['nombre']="Luis";
+  $t1[2]['direccion']="zona 1, San Jose Pinula ";
+  $t1[2]['telefono'][0]=12412854;
+  $t1[2]['telefono'][0]=45784125;
+  #linea 4
+  $t1[3]['nombre']="Peter Parker";
+  $t1[3]['direccion']="Petapolis";
+  $t1[3]['telefono'][0]=12412124;
+  $t1[3]['telefono'][0]=45124125;
+  
+  #imprimir nombres y direccion
+  $t2 = 0;
+  while0:
+	if ($t2>=4) goto end0;
+	print($t1[$t2]["nombre"]);
+	print(",");
+	print($t1[$t2]["direccion"]);
+	print(",");
+	print($t1[$t2]["telefono"][0]);
+	print("\n");
+	$t2 = $t2 + 1;
+	goto while0;
+  end0:	
+  #-----------------Arreglos---------------------  
+  $t3 = array();
+  $t3[0]=0;
+  $t3[1]=1;
+  print($t3); #esto debe disparar un error, no se puede imprimir un arreglo
+  print($t3[0]);
+  print("\n");
+  print($t3[1]);
+  print("\n");
+  $t3[1][0] = 10;  # esto debe dar un error el indice esta ocupado
+  $t3[2][0] = 20;
+  print($t3[2][0]);
+  print("\n");
+  print($t3[1][3]); #error esta vacio el indice
+  $t3["nombre"]="Carla";
+  print($t3["nombre"]);
+  print("\n");
+  $t3["nombre"][4]= "o"; #modifica un char de la cadena "Carla"
+  print($t3["nombre"]);
+  print("\n");
+  $t3["nombre"][5] = "s"; #agregar un char en la cadena "Carlo"
+  print($t3["nombre"]);
+  print("\n");
+  $t3["nombre"][7]="s"; #agrega dos char en la cadena "Carlo"
+  print($t3["nombre"]);
+  print("\n");
+  #$t3["nombre"]["apellido"]="last"; #error
+  
+  #-------------------Recursividad--------------
+  $s0 = array(); #stack
+  $sp = -1; #null pointer
+  $a0 = 2; #m
+  $a1 = 3; #n
+  $sp = $sp + 1;
+  $s0[$sp] =$a0; #push
+  goto ack;
+ret0:
+	print($v0);
+	exit;
+ack:
+    if ($sp<0) goto ret3; 
+	$a0 = $s0[$sp]; #pop
+	$sp = $sp - 1;
+	if ($a0 != 0) goto ret1;
+	$t4 = $a0 + 1;
+	$a1 = $a1 + $t4;
+	goto ack;
+ret1:
+	if($a1 != 0) goto ret2;
+	$a1 = $a1 + 1;
+	$a0 = $a0 - 1;
+	$sp = $sp + 1;
+	$s0[$sp] = $a0; #push
+	goto ack;
+ret2:
+	$a0 = $a0 - 1;
+	$sp = $sp + 1;
+	$s0[$sp] = $a0;
+	$a0 = $a0 + 1;
+	$sp = $sp + 1;
+	$s0[$sp] = $a0;
+	$a1 = $a1 - 1;
+	goto ack;
+ret3:
+	$v0 = $a1;
+	goto ret0;
+	
+#SALIDA ESPERADA SIN ERRORES
+#Hugo,zona 4,45784565
+#Paco,zona 8, villa nueva,45784125
+#Luis,zona 1, San Jose Pinula ,45784125
+#Peter Parker,Petapolis,45124125
+#0
+#1
+#20
+#Carla
+#Carlo
+#Carlos
+#Carlos s
+#9

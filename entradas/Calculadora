@@ -1,0 +1,86 @@
+#CALCULADORA
+main:
+print('CALCULADORA:');
+print('\n');
+menu:
+print('ingrese el primer número:');
+print('\n');
+$t1 = read();
+print('\n');
+print('usted ha ingresado:');
+print('\n');
+print($t1);
+print('\n');
+print('ingrese el segundo número:');
+print('\n');
+$t2 = read();
+print('\n');
+print('usted ha ingresado:');
+print('\n');
+print($t2);
+print('\n');
+
+operacion:
+print('¿Qué operación desea realizar? (+,-,*,/)');
+print('\n');
+$t3 = read();
+print('\n');
+print('usted ha ingresado:');
+print('\n');
+print($t3);
+print('\n');
+$t4 = (int) $t3;
+if( $t4 == 43 ) goto suma;
+if( $t4 == 45 ) goto resta;
+if( $t4 == 42 ) goto mult;
+if( $t4 == 47 ) goto div;
+#OPERACION INVALIDA
+print( "Operación no válida." );
+goto operacion;
+
+suma:
+$t5 = $t1 + $t2;
+goto imprimir;
+
+resta:
+$t5 = $t1 - $t2;
+goto imprimir;
+
+mult:
+$t5 = $t1 * $t2;
+goto imprimir;
+
+div:
+if ( $t2 == 0 ) goto error;
+$t5 = $t1 / $t2;
+goto imprimir;
+
+error: 
+print( 'ERROR: no se puede realizar una división entre 0.' );
+print('\n');
+goto fin;
+
+imprimir:
+print('La respuesta de ');
+print($t1);
+print($t3);
+print($t2);
+print(' es igual a:');
+print('\n');
+print($t5);
+print('\n');
+
+fin:
+print('¿Desea seguir ejecutando el programa? (Y/N)');
+print('\n');
+$t6 = read();
+print('\n');
+$t7 = (int) $t6;
+if ( $t7 == 89 ) goto menu;
+if ( $t7 == 78 ) goto salir;
+print('ERROR: Ingresar una opción válida.');
+print('\n');
+goto fin;
+
+salir:
+

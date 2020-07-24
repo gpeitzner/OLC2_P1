@@ -1,0 +1,16 @@
+main:
+$t1 = 10;
+goto prueba1;
+$t2 = 'a';
+prueba2:
+$t2 = 13.37;
+$t4 = array();
+$t4[0][1] = 10;
+$t4[0][2] = 20;
+$t4[1][1] = 30;
+$t4[1][2] = 40;
+exit;
+prueba1:
+$t1 = "hola";
+$t3 = $t1;
+goto prueba2;

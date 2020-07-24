@@ -1,0 +1,4 @@
+main:
+$t0 = "hola mundo";
+$t0[0] = 'm';
+$t1 = $t0;

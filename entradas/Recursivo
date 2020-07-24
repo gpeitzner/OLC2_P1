@@ -1,0 +1,20 @@
+main:
+	$tserie=10;
+	$tnum1 = 0;
+	$tnum2 = 1;
+	$tsuma = 1;
+	$ti = 1;
+
+    fibonacci:
+	if($ti>$tserie) goto fin;
+		$tsuma = $tnum1 + $tnum2;
+		$tnum1 = $tnum2;
+		$tnum2 = $tsuma;
+		$ti = $ti+1;
+		print($tsuma);
+		print("\n");
+		goto fibonacci;
+	
+
+fin:
+exit;		

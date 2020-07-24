@@ -1,0 +1,2082 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> init
+Rule 1     init -> main dosPuntos cuerpo
+Rule 2     cuerpo -> instrucciones
+Rule 3     cuerpo -> <empty>
+Rule 4     instrucciones -> instrucciones instruccion
+Rule 5     instrucciones -> instruccion
+Rule 6     instruccion -> etiqueta
+Rule 7     instruccion -> salto
+Rule 8     instruccion -> asignacion
+Rule 9     instruccion -> asignacion_arreglo
+Rule 10    instruccion -> eliminar
+Rule 11    instruccion -> imprimir
+Rule 12    instruccion -> si
+Rule 13    instruccion -> salir
+Rule 14    etiqueta -> identificador dosPuntos
+Rule 15    salto -> goto identificador puntoComa
+Rule 16    asignacion -> registro igual expresion puntoComa
+Rule 17    asignacion_arreglo -> registro accesos igual expresion puntoComa
+Rule 18    eliminar -> unset parentesisAbre registro parentesisCierra puntoComa
+Rule 19    imprimir -> print parentesisAbre expresion parentesisCierra puntoComa
+Rule 20    si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa
+Rule 21    salir -> exit puntoComa
+Rule 22    expresion -> valor mas valor
+Rule 23    expresion -> valor menos valor
+Rule 24    expresion -> valor asterisco valor
+Rule 25    expresion -> valor division valor
+Rule 26    expresion -> valor residuo valor
+Rule 27    expresion -> valor andLogico valor
+Rule 28    expresion -> valor orLogico valor
+Rule 29    expresion -> valor xor valor
+Rule 30    expresion -> valor andBit valor
+Rule 31    expresion -> valor orBit valor
+Rule 32    expresion -> valor xorBit valor
+Rule 33    expresion -> valor desplazamientoIzquierda valor
+Rule 34    expresion -> valor desplazamientoDerecha valor
+Rule 35    expresion -> valor equivale valor
+Rule 36    expresion -> valor diferente valor
+Rule 37    expresion -> valor mayorIgual valor
+Rule 38    expresion -> valor menorIgual valor
+Rule 39    expresion -> valor mayor valor
+Rule 40    expresion -> valor menor valor
+Rule 41    expresion -> menos valor
+Rule 42    expresion -> andBit valor
+Rule 43    expresion -> negacionLogica valor
+Rule 44    expresion -> negacionBit valor
+Rule 45    expresion -> read parentesisAbre parentesisCierra
+Rule 46    expresion -> abs parentesisAbre valor parentesisCierra
+Rule 47    expresion -> array parentesisAbre parentesisCierra
+Rule 48    expresion -> parentesisAbre int parentesisCierra valor
+Rule 49    expresion -> parentesisAbre float parentesisCierra valor
+Rule 50    expresion -> parentesisAbre char parentesisCierra valor
+Rule 51    expresion -> valor
+Rule 52    valor -> entero
+Rule 53    valor -> cadena
+Rule 54    valor -> caracter
+Rule 55    valor -> decimal
+Rule 56    valor -> registro
+Rule 57    valor -> registro accesos
+Rule 58    accesos -> accesos acceso
+Rule 59    accesos -> acceso
+Rule 60    acceso -> corcheteAbre expresion corcheteCierra
+
+Terminals, with rules where they appear
+
+abs                  : 46
+andBit               : 30 42
+andLogico            : 27
+array                : 47
+asterisco            : 24
+cadena               : 53
+caracter             : 54
+char                 : 50
+corcheteAbre         : 60
+corcheteCierra       : 60
+decimal              : 55
+desplazamientoDerecha : 34
+desplazamientoIzquierda : 33
+diferente            : 36
+division             : 25
+dosPuntos            : 1 14
+entero               : 52
+equivale             : 35
+error                : 
+exit                 : 21
+float                : 49
+goto                 : 15 20
+identificador        : 14 15 20
+if                   : 20
+igual                : 16 17
+int                  : 48
+main                 : 1
+mas                  : 22
+mayor                : 39
+mayorIgual           : 37
+menor                : 40
+menorIgual           : 38
+menos                : 23 41
+negacionBit          : 44
+negacionLogica       : 43
+orBit                : 31
+orLogico             : 28
+parentesisAbre       : 18 19 20 45 46 47 48 49 50
+parentesisCierra     : 18 19 20 45 46 47 48 49 50
+print                : 19
+puntoComa            : 15 16 17 18 19 20 21
+read                 : 45
+registro             : 16 17 18 56 57
+residuo              : 26
+unset                : 18
+xor                  : 29
+xorBit               : 32
+
+Nonterminals, with rules where they appear
+
+acceso               : 58 59
+accesos              : 17 57 58
+asignacion           : 8
+asignacion_arreglo   : 9
+cuerpo               : 1
+eliminar             : 10
+etiqueta             : 6
+expresion            : 16 17 19 20 60
+imprimir             : 11
+init                 : 0
+instruccion          : 4 5
+instrucciones        : 2 4
+salir                : 13
+salto                : 7
+si                   : 12
+valor                : 22 22 23 23 24 24 25 25 26 26 27 27 28 28 29 29 30 30 31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 42 43 44 46 48 49 50 51
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . init
+    (1) init -> . main dosPuntos cuerpo
+
+    main            shift and go to state 2
+
+    init                           shift and go to state 1
+
+state 1
+
+    (0) S' -> init .
+
+
+
+state 2
+
+    (1) init -> main . dosPuntos cuerpo
+
+    dosPuntos       shift and go to state 3
+
+
+state 3
+
+    (1) init -> main dosPuntos . cuerpo
+    (2) cuerpo -> . instrucciones
+    (3) cuerpo -> .
+    (4) instrucciones -> . instrucciones instruccion
+    (5) instrucciones -> . instruccion
+    (6) instruccion -> . etiqueta
+    (7) instruccion -> . salto
+    (8) instruccion -> . asignacion
+    (9) instruccion -> . asignacion_arreglo
+    (10) instruccion -> . eliminar
+    (11) instruccion -> . imprimir
+    (12) instruccion -> . si
+    (13) instruccion -> . salir
+    (14) etiqueta -> . identificador dosPuntos
+    (15) salto -> . goto identificador puntoComa
+    (16) asignacion -> . registro igual expresion puntoComa
+    (17) asignacion_arreglo -> . registro accesos igual expresion puntoComa
+    (18) eliminar -> . unset parentesisAbre registro parentesisCierra puntoComa
+    (19) imprimir -> . print parentesisAbre expresion parentesisCierra puntoComa
+    (20) si -> . if parentesisAbre expresion parentesisCierra goto identificador puntoComa
+    (21) salir -> . exit puntoComa
+
+    $end            reduce using rule 3 (cuerpo -> .)
+    identificador   shift and go to state 15
+    goto            shift and go to state 16
+    registro        shift and go to state 17
+    unset           shift and go to state 18
+    print           shift and go to state 19
+    if              shift and go to state 20
+    exit            shift and go to state 21
+
+    cuerpo                         shift and go to state 4
+    instrucciones                  shift and go to state 5
+    instruccion                    shift and go to state 6
+    etiqueta                       shift and go to state 7
+    salto                          shift and go to state 8
+    asignacion                     shift and go to state 9
+    asignacion_arreglo             shift and go to state 10
+    eliminar                       shift and go to state 11
+    imprimir                       shift and go to state 12
+    si                             shift and go to state 13
+    salir                          shift and go to state 14
+
+state 4
+
+    (1) init -> main dosPuntos cuerpo .
+
+    $end            reduce using rule 1 (init -> main dosPuntos cuerpo .)
+
+
+state 5
+
+    (2) cuerpo -> instrucciones .
+    (4) instrucciones -> instrucciones . instruccion
+    (6) instruccion -> . etiqueta
+    (7) instruccion -> . salto
+    (8) instruccion -> . asignacion
+    (9) instruccion -> . asignacion_arreglo
+    (10) instruccion -> . eliminar
+    (11) instruccion -> . imprimir
+    (12) instruccion -> . si
+    (13) instruccion -> . salir
+    (14) etiqueta -> . identificador dosPuntos
+    (15) salto -> . goto identificador puntoComa
+    (16) asignacion -> . registro igual expresion puntoComa
+    (17) asignacion_arreglo -> . registro accesos igual expresion puntoComa
+    (18) eliminar -> . unset parentesisAbre registro parentesisCierra puntoComa
+    (19) imprimir -> . print parentesisAbre expresion parentesisCierra puntoComa
+    (20) si -> . if parentesisAbre expresion parentesisCierra goto identificador puntoComa
+    (21) salir -> . exit puntoComa
+
+    $end            reduce using rule 2 (cuerpo -> instrucciones .)
+    identificador   shift and go to state 15
+    goto            shift and go to state 16
+    registro        shift and go to state 17
+    unset           shift and go to state 18
+    print           shift and go to state 19
+    if              shift and go to state 20
+    exit            shift and go to state 21
+
+    instruccion                    shift and go to state 22
+    etiqueta                       shift and go to state 7
+    salto                          shift and go to state 8
+    asignacion                     shift and go to state 9
+    asignacion_arreglo             shift and go to state 10
+    eliminar                       shift and go to state 11
+    imprimir                       shift and go to state 12
+    si                             shift and go to state 13
+    salir                          shift and go to state 14
+
+state 6
+
+    (5) instrucciones -> instruccion .
+
+    identificador   reduce using rule 5 (instrucciones -> instruccion .)
+    goto            reduce using rule 5 (instrucciones -> instruccion .)
+    registro        reduce using rule 5 (instrucciones -> instruccion .)
+    unset           reduce using rule 5 (instrucciones -> instruccion .)
+    print           reduce using rule 5 (instrucciones -> instruccion .)
+    if              reduce using rule 5 (instrucciones -> instruccion .)
+    exit            reduce using rule 5 (instrucciones -> instruccion .)
+    $end            reduce using rule 5 (instrucciones -> instruccion .)
+
+
+state 7
+
+    (6) instruccion -> etiqueta .
+
+    identificador   reduce using rule 6 (instruccion -> etiqueta .)
+    goto            reduce using rule 6 (instruccion -> etiqueta .)
+    registro        reduce using rule 6 (instruccion -> etiqueta .)
+    unset           reduce using rule 6 (instruccion -> etiqueta .)
+    print           reduce using rule 6 (instruccion -> etiqueta .)
+    if              reduce using rule 6 (instruccion -> etiqueta .)
+    exit            reduce using rule 6 (instruccion -> etiqueta .)
+    $end            reduce using rule 6 (instruccion -> etiqueta .)
+
+
+state 8
+
+    (7) instruccion -> salto .
+
+    identificador   reduce using rule 7 (instruccion -> salto .)
+    goto            reduce using rule 7 (instruccion -> salto .)
+    registro        reduce using rule 7 (instruccion -> salto .)
+    unset           reduce using rule 7 (instruccion -> salto .)
+    print           reduce using rule 7 (instruccion -> salto .)
+    if              reduce using rule 7 (instruccion -> salto .)
+    exit            reduce using rule 7 (instruccion -> salto .)
+    $end            reduce using rule 7 (instruccion -> salto .)
+
+
+state 9
+
+    (8) instruccion -> asignacion .
+
+    identificador   reduce using rule 8 (instruccion -> asignacion .)
+    goto            reduce using rule 8 (instruccion -> asignacion .)
+    registro        reduce using rule 8 (instruccion -> asignacion .)
+    unset           reduce using rule 8 (instruccion -> asignacion .)
+    print           reduce using rule 8 (instruccion -> asignacion .)
+    if              reduce using rule 8 (instruccion -> asignacion .)
+    exit            reduce using rule 8 (instruccion -> asignacion .)
+    $end            reduce using rule 8 (instruccion -> asignacion .)
+
+
+state 10
+
+    (9) instruccion -> asignacion_arreglo .
+
+    identificador   reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    goto            reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    registro        reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    unset           reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    print           reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    if              reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    exit            reduce using rule 9 (instruccion -> asignacion_arreglo .)
+    $end            reduce using rule 9 (instruccion -> asignacion_arreglo .)
+
+
+state 11
+
+    (10) instruccion -> eliminar .
+
+    identificador   reduce using rule 10 (instruccion -> eliminar .)
+    goto            reduce using rule 10 (instruccion -> eliminar .)
+    registro        reduce using rule 10 (instruccion -> eliminar .)
+    unset           reduce using rule 10 (instruccion -> eliminar .)
+    print           reduce using rule 10 (instruccion -> eliminar .)
+    if              reduce using rule 10 (instruccion -> eliminar .)
+    exit            reduce using rule 10 (instruccion -> eliminar .)
+    $end            reduce using rule 10 (instruccion -> eliminar .)
+
+
+state 12
+
+    (11) instruccion -> imprimir .
+
+    identificador   reduce using rule 11 (instruccion -> imprimir .)
+    goto            reduce using rule 11 (instruccion -> imprimir .)
+    registro        reduce using rule 11 (instruccion -> imprimir .)
+    unset           reduce using rule 11 (instruccion -> imprimir .)
+    print           reduce using rule 11 (instruccion -> imprimir .)
+    if              reduce using rule 11 (instruccion -> imprimir .)
+    exit            reduce using rule 11 (instruccion -> imprimir .)
+    $end            reduce using rule 11 (instruccion -> imprimir .)
+
+
+state 13
+
+    (12) instruccion -> si .
+
+    identificador   reduce using rule 12 (instruccion -> si .)
+    goto            reduce using rule 12 (instruccion -> si .)
+    registro        reduce using rule 12 (instruccion -> si .)
+    unset           reduce using rule 12 (instruccion -> si .)
+    print           reduce using rule 12 (instruccion -> si .)
+    if              reduce using rule 12 (instruccion -> si .)
+    exit            reduce using rule 12 (instruccion -> si .)
+    $end            reduce using rule 12 (instruccion -> si .)
+
+
+state 14
+
+    (13) instruccion -> salir .
+
+    identificador   reduce using rule 13 (instruccion -> salir .)
+    goto            reduce using rule 13 (instruccion -> salir .)
+    registro        reduce using rule 13 (instruccion -> salir .)
+    unset           reduce using rule 13 (instruccion -> salir .)
+    print           reduce using rule 13 (instruccion -> salir .)
+    if              reduce using rule 13 (instruccion -> salir .)
+    exit            reduce using rule 13 (instruccion -> salir .)
+    $end            reduce using rule 13 (instruccion -> salir .)
+
+
+state 15
+
+    (14) etiqueta -> identificador . dosPuntos
+
+    dosPuntos       shift and go to state 23
+
+
+state 16
+
+    (15) salto -> goto . identificador puntoComa
+
+    identificador   shift and go to state 24
+
+
+state 17
+
+    (16) asignacion -> registro . igual expresion puntoComa
+    (17) asignacion_arreglo -> registro . accesos igual expresion puntoComa
+    (58) accesos -> . accesos acceso
+    (59) accesos -> . acceso
+    (60) acceso -> . corcheteAbre expresion corcheteCierra
+
+    igual           shift and go to state 25
+    corcheteAbre    shift and go to state 28
+
+    accesos                        shift and go to state 26
+    acceso                         shift and go to state 27
+
+state 18
+
+    (18) eliminar -> unset . parentesisAbre registro parentesisCierra puntoComa
+
+    parentesisAbre  shift and go to state 29
+
+
+state 19
+
+    (19) imprimir -> print . parentesisAbre expresion parentesisCierra puntoComa
+
+    parentesisAbre  shift and go to state 30
+
+
+state 20
+
+    (20) si -> if . parentesisAbre expresion parentesisCierra goto identificador puntoComa
+
+    parentesisAbre  shift and go to state 31
+
+
+state 21
+
+    (21) salir -> exit . puntoComa
+
+    puntoComa       shift and go to state 32
+
+
+state 22
+
+    (4) instrucciones -> instrucciones instruccion .
+
+    identificador   reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    goto            reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    registro        reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    unset           reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    print           reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    if              reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    exit            reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+    $end            reduce using rule 4 (instrucciones -> instrucciones instruccion .)
+
+
+state 23
+
+    (14) etiqueta -> identificador dosPuntos .
+
+    identificador   reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    goto            reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    registro        reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    unset           reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    print           reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    if              reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    exit            reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+    $end            reduce using rule 14 (etiqueta -> identificador dosPuntos .)
+
+
+state 24
+
+    (15) salto -> goto identificador . puntoComa
+
+    puntoComa       shift and go to state 33
+
+
+state 25
+
+    (16) asignacion -> registro igual . expresion puntoComa
+    (22) expresion -> . valor mas valor
+    (23) expresion -> . valor menos valor
+    (24) expresion -> . valor asterisco valor
+    (25) expresion -> . valor division valor
+    (26) expresion -> . valor residuo valor
+    (27) expresion -> . valor andLogico valor
+    (28) expresion -> . valor orLogico valor
+    (29) expresion -> . valor xor valor
+    (30) expresion -> . valor andBit valor
+    (31) expresion -> . valor orBit valor
+    (32) expresion -> . valor xorBit valor
+    (33) expresion -> . valor desplazamientoIzquierda valor
+    (34) expresion -> . valor desplazamientoDerecha valor
+    (35) expresion -> . valor equivale valor
+    (36) expresion -> . valor diferente valor
+    (37) expresion -> . valor mayorIgual valor
+    (38) expresion -> . valor menorIgual valor
+    (39) expresion -> . valor mayor valor
+    (40) expresion -> . valor menor valor
+    (41) expresion -> . menos valor
+    (42) expresion -> . andBit valor
+    (43) expresion -> . negacionLogica valor
+    (44) expresion -> . negacionBit valor
+    (45) expresion -> . read parentesisAbre parentesisCierra
+    (46) expresion -> . abs parentesisAbre valor parentesisCierra
+    (47) expresion -> . array parentesisAbre parentesisCierra
+    (48) expresion -> . parentesisAbre int parentesisCierra valor
+    (49) expresion -> . parentesisAbre float parentesisCierra valor
+    (50) expresion -> . parentesisAbre char parentesisCierra valor
+    (51) expresion -> . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    menos           shift and go to state 37
+    andBit          shift and go to state 38
+    negacionLogica  shift and go to state 39
+    negacionBit     shift and go to state 40
+    read            shift and go to state 41
+    abs             shift and go to state 43
+    array           shift and go to state 44
+    parentesisAbre  shift and go to state 42
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    expresion                      shift and go to state 35
+    valor                          shift and go to state 36
+
+state 26
+
+    (17) asignacion_arreglo -> registro accesos . igual expresion puntoComa
+    (58) accesos -> accesos . acceso
+    (60) acceso -> . corcheteAbre expresion corcheteCierra
+
+    igual           shift and go to state 49
+    corcheteAbre    shift and go to state 28
+
+    acceso                         shift and go to state 50
+
+state 27
+
+    (59) accesos -> acceso .
+
+    igual           reduce using rule 59 (accesos -> acceso .)
+    corcheteAbre    reduce using rule 59 (accesos -> acceso .)
+    mas             reduce using rule 59 (accesos -> acceso .)
+    menos           reduce using rule 59 (accesos -> acceso .)
+    asterisco       reduce using rule 59 (accesos -> acceso .)
+    division        reduce using rule 59 (accesos -> acceso .)
+    residuo         reduce using rule 59 (accesos -> acceso .)
+    andLogico       reduce using rule 59 (accesos -> acceso .)
+    orLogico        reduce using rule 59 (accesos -> acceso .)
+    xor             reduce using rule 59 (accesos -> acceso .)
+    andBit          reduce using rule 59 (accesos -> acceso .)
+    orBit           reduce using rule 59 (accesos -> acceso .)
+    xorBit          reduce using rule 59 (accesos -> acceso .)
+    desplazamientoIzquierda reduce using rule 59 (accesos -> acceso .)
+    desplazamientoDerecha reduce using rule 59 (accesos -> acceso .)
+    equivale        reduce using rule 59 (accesos -> acceso .)
+    diferente       reduce using rule 59 (accesos -> acceso .)
+    mayorIgual      reduce using rule 59 (accesos -> acceso .)
+    menorIgual      reduce using rule 59 (accesos -> acceso .)
+    mayor           reduce using rule 59 (accesos -> acceso .)
+    menor           reduce using rule 59 (accesos -> acceso .)
+    puntoComa       reduce using rule 59 (accesos -> acceso .)
+    corcheteCierra  reduce using rule 59 (accesos -> acceso .)
+    parentesisCierra reduce using rule 59 (accesos -> acceso .)
+
+
+state 28
+
+    (60) acceso -> corcheteAbre . expresion corcheteCierra
+    (22) expresion -> . valor mas valor
+    (23) expresion -> . valor menos valor
+    (24) expresion -> . valor asterisco valor
+    (25) expresion -> . valor division valor
+    (26) expresion -> . valor residuo valor
+    (27) expresion -> . valor andLogico valor
+    (28) expresion -> . valor orLogico valor
+    (29) expresion -> . valor xor valor
+    (30) expresion -> . valor andBit valor
+    (31) expresion -> . valor orBit valor
+    (32) expresion -> . valor xorBit valor
+    (33) expresion -> . valor desplazamientoIzquierda valor
+    (34) expresion -> . valor desplazamientoDerecha valor
+    (35) expresion -> . valor equivale valor
+    (36) expresion -> . valor diferente valor
+    (37) expresion -> . valor mayorIgual valor
+    (38) expresion -> . valor menorIgual valor
+    (39) expresion -> . valor mayor valor
+    (40) expresion -> . valor menor valor
+    (41) expresion -> . menos valor
+    (42) expresion -> . andBit valor
+    (43) expresion -> . negacionLogica valor
+    (44) expresion -> . negacionBit valor
+    (45) expresion -> . read parentesisAbre parentesisCierra
+    (46) expresion -> . abs parentesisAbre valor parentesisCierra
+    (47) expresion -> . array parentesisAbre parentesisCierra
+    (48) expresion -> . parentesisAbre int parentesisCierra valor
+    (49) expresion -> . parentesisAbre float parentesisCierra valor
+    (50) expresion -> . parentesisAbre char parentesisCierra valor
+    (51) expresion -> . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    menos           shift and go to state 37
+    andBit          shift and go to state 38
+    negacionLogica  shift and go to state 39
+    negacionBit     shift and go to state 40
+    read            shift and go to state 41
+    abs             shift and go to state 43
+    array           shift and go to state 44
+    parentesisAbre  shift and go to state 42
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    expresion                      shift and go to state 51
+    valor                          shift and go to state 36
+
+state 29
+
+    (18) eliminar -> unset parentesisAbre . registro parentesisCierra puntoComa
+
+    registro        shift and go to state 52
+
+
+state 30
+
+    (19) imprimir -> print parentesisAbre . expresion parentesisCierra puntoComa
+    (22) expresion -> . valor mas valor
+    (23) expresion -> . valor menos valor
+    (24) expresion -> . valor asterisco valor
+    (25) expresion -> . valor division valor
+    (26) expresion -> . valor residuo valor
+    (27) expresion -> . valor andLogico valor
+    (28) expresion -> . valor orLogico valor
+    (29) expresion -> . valor xor valor
+    (30) expresion -> . valor andBit valor
+    (31) expresion -> . valor orBit valor
+    (32) expresion -> . valor xorBit valor
+    (33) expresion -> . valor desplazamientoIzquierda valor
+    (34) expresion -> . valor desplazamientoDerecha valor
+    (35) expresion -> . valor equivale valor
+    (36) expresion -> . valor diferente valor
+    (37) expresion -> . valor mayorIgual valor
+    (38) expresion -> . valor menorIgual valor
+    (39) expresion -> . valor mayor valor
+    (40) expresion -> . valor menor valor
+    (41) expresion -> . menos valor
+    (42) expresion -> . andBit valor
+    (43) expresion -> . negacionLogica valor
+    (44) expresion -> . negacionBit valor
+    (45) expresion -> . read parentesisAbre parentesisCierra
+    (46) expresion -> . abs parentesisAbre valor parentesisCierra
+    (47) expresion -> . array parentesisAbre parentesisCierra
+    (48) expresion -> . parentesisAbre int parentesisCierra valor
+    (49) expresion -> . parentesisAbre float parentesisCierra valor
+    (50) expresion -> . parentesisAbre char parentesisCierra valor
+    (51) expresion -> . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    menos           shift and go to state 37
+    andBit          shift and go to state 38
+    negacionLogica  shift and go to state 39
+    negacionBit     shift and go to state 40
+    read            shift and go to state 41
+    abs             shift and go to state 43
+    array           shift and go to state 44
+    parentesisAbre  shift and go to state 42
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    expresion                      shift and go to state 53
+    valor                          shift and go to state 36
+
+state 31
+
+    (20) si -> if parentesisAbre . expresion parentesisCierra goto identificador puntoComa
+    (22) expresion -> . valor mas valor
+    (23) expresion -> . valor menos valor
+    (24) expresion -> . valor asterisco valor
+    (25) expresion -> . valor division valor
+    (26) expresion -> . valor residuo valor
+    (27) expresion -> . valor andLogico valor
+    (28) expresion -> . valor orLogico valor
+    (29) expresion -> . valor xor valor
+    (30) expresion -> . valor andBit valor
+    (31) expresion -> . valor orBit valor
+    (32) expresion -> . valor xorBit valor
+    (33) expresion -> . valor desplazamientoIzquierda valor
+    (34) expresion -> . valor desplazamientoDerecha valor
+    (35) expresion -> . valor equivale valor
+    (36) expresion -> . valor diferente valor
+    (37) expresion -> . valor mayorIgual valor
+    (38) expresion -> . valor menorIgual valor
+    (39) expresion -> . valor mayor valor
+    (40) expresion -> . valor menor valor
+    (41) expresion -> . menos valor
+    (42) expresion -> . andBit valor
+    (43) expresion -> . negacionLogica valor
+    (44) expresion -> . negacionBit valor
+    (45) expresion -> . read parentesisAbre parentesisCierra
+    (46) expresion -> . abs parentesisAbre valor parentesisCierra
+    (47) expresion -> . array parentesisAbre parentesisCierra
+    (48) expresion -> . parentesisAbre int parentesisCierra valor
+    (49) expresion -> . parentesisAbre float parentesisCierra valor
+    (50) expresion -> . parentesisAbre char parentesisCierra valor
+    (51) expresion -> . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    menos           shift and go to state 37
+    andBit          shift and go to state 38
+    negacionLogica  shift and go to state 39
+    negacionBit     shift and go to state 40
+    read            shift and go to state 41
+    abs             shift and go to state 43
+    array           shift and go to state 44
+    parentesisAbre  shift and go to state 42
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    expresion                      shift and go to state 54
+    valor                          shift and go to state 36
+
+state 32
+
+    (21) salir -> exit puntoComa .
+
+    identificador   reduce using rule 21 (salir -> exit puntoComa .)
+    goto            reduce using rule 21 (salir -> exit puntoComa .)
+    registro        reduce using rule 21 (salir -> exit puntoComa .)
+    unset           reduce using rule 21 (salir -> exit puntoComa .)
+    print           reduce using rule 21 (salir -> exit puntoComa .)
+    if              reduce using rule 21 (salir -> exit puntoComa .)
+    exit            reduce using rule 21 (salir -> exit puntoComa .)
+    $end            reduce using rule 21 (salir -> exit puntoComa .)
+
+
+state 33
+
+    (15) salto -> goto identificador puntoComa .
+
+    identificador   reduce using rule 15 (salto -> goto identificador puntoComa .)
+    goto            reduce using rule 15 (salto -> goto identificador puntoComa .)
+    registro        reduce using rule 15 (salto -> goto identificador puntoComa .)
+    unset           reduce using rule 15 (salto -> goto identificador puntoComa .)
+    print           reduce using rule 15 (salto -> goto identificador puntoComa .)
+    if              reduce using rule 15 (salto -> goto identificador puntoComa .)
+    exit            reduce using rule 15 (salto -> goto identificador puntoComa .)
+    $end            reduce using rule 15 (salto -> goto identificador puntoComa .)
+
+
+state 34
+
+    (56) valor -> registro .
+    (57) valor -> registro . accesos
+    (58) accesos -> . accesos acceso
+    (59) accesos -> . acceso
+    (60) acceso -> . corcheteAbre expresion corcheteCierra
+
+    mas             reduce using rule 56 (valor -> registro .)
+    menos           reduce using rule 56 (valor -> registro .)
+    asterisco       reduce using rule 56 (valor -> registro .)
+    division        reduce using rule 56 (valor -> registro .)
+    residuo         reduce using rule 56 (valor -> registro .)
+    andLogico       reduce using rule 56 (valor -> registro .)
+    orLogico        reduce using rule 56 (valor -> registro .)
+    xor             reduce using rule 56 (valor -> registro .)
+    andBit          reduce using rule 56 (valor -> registro .)
+    orBit           reduce using rule 56 (valor -> registro .)
+    xorBit          reduce using rule 56 (valor -> registro .)
+    desplazamientoIzquierda reduce using rule 56 (valor -> registro .)
+    desplazamientoDerecha reduce using rule 56 (valor -> registro .)
+    equivale        reduce using rule 56 (valor -> registro .)
+    diferente       reduce using rule 56 (valor -> registro .)
+    mayorIgual      reduce using rule 56 (valor -> registro .)
+    menorIgual      reduce using rule 56 (valor -> registro .)
+    mayor           reduce using rule 56 (valor -> registro .)
+    menor           reduce using rule 56 (valor -> registro .)
+    puntoComa       reduce using rule 56 (valor -> registro .)
+    corcheteCierra  reduce using rule 56 (valor -> registro .)
+    parentesisCierra reduce using rule 56 (valor -> registro .)
+    corcheteAbre    shift and go to state 28
+
+    accesos                        shift and go to state 55
+    acceso                         shift and go to state 27
+
+state 35
+
+    (16) asignacion -> registro igual expresion . puntoComa
+
+    puntoComa       shift and go to state 56
+
+
+state 36
+
+    (22) expresion -> valor . mas valor
+    (23) expresion -> valor . menos valor
+    (24) expresion -> valor . asterisco valor
+    (25) expresion -> valor . division valor
+    (26) expresion -> valor . residuo valor
+    (27) expresion -> valor . andLogico valor
+    (28) expresion -> valor . orLogico valor
+    (29) expresion -> valor . xor valor
+    (30) expresion -> valor . andBit valor
+    (31) expresion -> valor . orBit valor
+    (32) expresion -> valor . xorBit valor
+    (33) expresion -> valor . desplazamientoIzquierda valor
+    (34) expresion -> valor . desplazamientoDerecha valor
+    (35) expresion -> valor . equivale valor
+    (36) expresion -> valor . diferente valor
+    (37) expresion -> valor . mayorIgual valor
+    (38) expresion -> valor . menorIgual valor
+    (39) expresion -> valor . mayor valor
+    (40) expresion -> valor . menor valor
+    (51) expresion -> valor .
+
+    mas             shift and go to state 57
+    menos           shift and go to state 58
+    asterisco       shift and go to state 59
+    division        shift and go to state 60
+    residuo         shift and go to state 61
+    andLogico       shift and go to state 62
+    orLogico        shift and go to state 63
+    xor             shift and go to state 64
+    andBit          shift and go to state 65
+    orBit           shift and go to state 66
+    xorBit          shift and go to state 67
+    desplazamientoIzquierda shift and go to state 68
+    desplazamientoDerecha shift and go to state 69
+    equivale        shift and go to state 70
+    diferente       shift and go to state 71
+    mayorIgual      shift and go to state 72
+    menorIgual      shift and go to state 73
+    mayor           shift and go to state 74
+    menor           shift and go to state 75
+    puntoComa       reduce using rule 51 (expresion -> valor .)
+    corcheteCierra  reduce using rule 51 (expresion -> valor .)
+    parentesisCierra reduce using rule 51 (expresion -> valor .)
+
+
+state 37
+
+    (41) expresion -> menos . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 76
+
+state 38
+
+    (42) expresion -> andBit . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 77
+
+state 39
+
+    (43) expresion -> negacionLogica . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 78
+
+state 40
+
+    (44) expresion -> negacionBit . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 79
+
+state 41
+
+    (45) expresion -> read . parentesisAbre parentesisCierra
+
+    parentesisAbre  shift and go to state 80
+
+
+state 42
+
+    (48) expresion -> parentesisAbre . int parentesisCierra valor
+    (49) expresion -> parentesisAbre . float parentesisCierra valor
+    (50) expresion -> parentesisAbre . char parentesisCierra valor
+
+    int             shift and go to state 81
+    float           shift and go to state 82
+    char            shift and go to state 83
+
+
+state 43
+
+    (46) expresion -> abs . parentesisAbre valor parentesisCierra
+
+    parentesisAbre  shift and go to state 84
+
+
+state 44
+
+    (47) expresion -> array . parentesisAbre parentesisCierra
+
+    parentesisAbre  shift and go to state 85
+
+
+state 45
+
+    (52) valor -> entero .
+
+    mas             reduce using rule 52 (valor -> entero .)
+    menos           reduce using rule 52 (valor -> entero .)
+    asterisco       reduce using rule 52 (valor -> entero .)
+    division        reduce using rule 52 (valor -> entero .)
+    residuo         reduce using rule 52 (valor -> entero .)
+    andLogico       reduce using rule 52 (valor -> entero .)
+    orLogico        reduce using rule 52 (valor -> entero .)
+    xor             reduce using rule 52 (valor -> entero .)
+    andBit          reduce using rule 52 (valor -> entero .)
+    orBit           reduce using rule 52 (valor -> entero .)
+    xorBit          reduce using rule 52 (valor -> entero .)
+    desplazamientoIzquierda reduce using rule 52 (valor -> entero .)
+    desplazamientoDerecha reduce using rule 52 (valor -> entero .)
+    equivale        reduce using rule 52 (valor -> entero .)
+    diferente       reduce using rule 52 (valor -> entero .)
+    mayorIgual      reduce using rule 52 (valor -> entero .)
+    menorIgual      reduce using rule 52 (valor -> entero .)
+    mayor           reduce using rule 52 (valor -> entero .)
+    menor           reduce using rule 52 (valor -> entero .)
+    puntoComa       reduce using rule 52 (valor -> entero .)
+    corcheteCierra  reduce using rule 52 (valor -> entero .)
+    parentesisCierra reduce using rule 52 (valor -> entero .)
+
+
+state 46
+
+    (53) valor -> cadena .
+
+    mas             reduce using rule 53 (valor -> cadena .)
+    menos           reduce using rule 53 (valor -> cadena .)
+    asterisco       reduce using rule 53 (valor -> cadena .)
+    division        reduce using rule 53 (valor -> cadena .)
+    residuo         reduce using rule 53 (valor -> cadena .)
+    andLogico       reduce using rule 53 (valor -> cadena .)
+    orLogico        reduce using rule 53 (valor -> cadena .)
+    xor             reduce using rule 53 (valor -> cadena .)
+    andBit          reduce using rule 53 (valor -> cadena .)
+    orBit           reduce using rule 53 (valor -> cadena .)
+    xorBit          reduce using rule 53 (valor -> cadena .)
+    desplazamientoIzquierda reduce using rule 53 (valor -> cadena .)
+    desplazamientoDerecha reduce using rule 53 (valor -> cadena .)
+    equivale        reduce using rule 53 (valor -> cadena .)
+    diferente       reduce using rule 53 (valor -> cadena .)
+    mayorIgual      reduce using rule 53 (valor -> cadena .)
+    menorIgual      reduce using rule 53 (valor -> cadena .)
+    mayor           reduce using rule 53 (valor -> cadena .)
+    menor           reduce using rule 53 (valor -> cadena .)
+    puntoComa       reduce using rule 53 (valor -> cadena .)
+    corcheteCierra  reduce using rule 53 (valor -> cadena .)
+    parentesisCierra reduce using rule 53 (valor -> cadena .)
+
+
+state 47
+
+    (54) valor -> caracter .
+
+    mas             reduce using rule 54 (valor -> caracter .)
+    menos           reduce using rule 54 (valor -> caracter .)
+    asterisco       reduce using rule 54 (valor -> caracter .)
+    division        reduce using rule 54 (valor -> caracter .)
+    residuo         reduce using rule 54 (valor -> caracter .)
+    andLogico       reduce using rule 54 (valor -> caracter .)
+    orLogico        reduce using rule 54 (valor -> caracter .)
+    xor             reduce using rule 54 (valor -> caracter .)
+    andBit          reduce using rule 54 (valor -> caracter .)
+    orBit           reduce using rule 54 (valor -> caracter .)
+    xorBit          reduce using rule 54 (valor -> caracter .)
+    desplazamientoIzquierda reduce using rule 54 (valor -> caracter .)
+    desplazamientoDerecha reduce using rule 54 (valor -> caracter .)
+    equivale        reduce using rule 54 (valor -> caracter .)
+    diferente       reduce using rule 54 (valor -> caracter .)
+    mayorIgual      reduce using rule 54 (valor -> caracter .)
+    menorIgual      reduce using rule 54 (valor -> caracter .)
+    mayor           reduce using rule 54 (valor -> caracter .)
+    menor           reduce using rule 54 (valor -> caracter .)
+    puntoComa       reduce using rule 54 (valor -> caracter .)
+    corcheteCierra  reduce using rule 54 (valor -> caracter .)
+    parentesisCierra reduce using rule 54 (valor -> caracter .)
+
+
+state 48
+
+    (55) valor -> decimal .
+
+    mas             reduce using rule 55 (valor -> decimal .)
+    menos           reduce using rule 55 (valor -> decimal .)
+    asterisco       reduce using rule 55 (valor -> decimal .)
+    division        reduce using rule 55 (valor -> decimal .)
+    residuo         reduce using rule 55 (valor -> decimal .)
+    andLogico       reduce using rule 55 (valor -> decimal .)
+    orLogico        reduce using rule 55 (valor -> decimal .)
+    xor             reduce using rule 55 (valor -> decimal .)
+    andBit          reduce using rule 55 (valor -> decimal .)
+    orBit           reduce using rule 55 (valor -> decimal .)
+    xorBit          reduce using rule 55 (valor -> decimal .)
+    desplazamientoIzquierda reduce using rule 55 (valor -> decimal .)
+    desplazamientoDerecha reduce using rule 55 (valor -> decimal .)
+    equivale        reduce using rule 55 (valor -> decimal .)
+    diferente       reduce using rule 55 (valor -> decimal .)
+    mayorIgual      reduce using rule 55 (valor -> decimal .)
+    menorIgual      reduce using rule 55 (valor -> decimal .)
+    mayor           reduce using rule 55 (valor -> decimal .)
+    menor           reduce using rule 55 (valor -> decimal .)
+    puntoComa       reduce using rule 55 (valor -> decimal .)
+    corcheteCierra  reduce using rule 55 (valor -> decimal .)
+    parentesisCierra reduce using rule 55 (valor -> decimal .)
+
+
+state 49
+
+    (17) asignacion_arreglo -> registro accesos igual . expresion puntoComa
+    (22) expresion -> . valor mas valor
+    (23) expresion -> . valor menos valor
+    (24) expresion -> . valor asterisco valor
+    (25) expresion -> . valor division valor
+    (26) expresion -> . valor residuo valor
+    (27) expresion -> . valor andLogico valor
+    (28) expresion -> . valor orLogico valor
+    (29) expresion -> . valor xor valor
+    (30) expresion -> . valor andBit valor
+    (31) expresion -> . valor orBit valor
+    (32) expresion -> . valor xorBit valor
+    (33) expresion -> . valor desplazamientoIzquierda valor
+    (34) expresion -> . valor desplazamientoDerecha valor
+    (35) expresion -> . valor equivale valor
+    (36) expresion -> . valor diferente valor
+    (37) expresion -> . valor mayorIgual valor
+    (38) expresion -> . valor menorIgual valor
+    (39) expresion -> . valor mayor valor
+    (40) expresion -> . valor menor valor
+    (41) expresion -> . menos valor
+    (42) expresion -> . andBit valor
+    (43) expresion -> . negacionLogica valor
+    (44) expresion -> . negacionBit valor
+    (45) expresion -> . read parentesisAbre parentesisCierra
+    (46) expresion -> . abs parentesisAbre valor parentesisCierra
+    (47) expresion -> . array parentesisAbre parentesisCierra
+    (48) expresion -> . parentesisAbre int parentesisCierra valor
+    (49) expresion -> . parentesisAbre float parentesisCierra valor
+    (50) expresion -> . parentesisAbre char parentesisCierra valor
+    (51) expresion -> . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    menos           shift and go to state 37
+    andBit          shift and go to state 38
+    negacionLogica  shift and go to state 39
+    negacionBit     shift and go to state 40
+    read            shift and go to state 41
+    abs             shift and go to state 43
+    array           shift and go to state 44
+    parentesisAbre  shift and go to state 42
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    expresion                      shift and go to state 86
+    valor                          shift and go to state 36
+
+state 50
+
+    (58) accesos -> accesos acceso .
+
+    igual           reduce using rule 58 (accesos -> accesos acceso .)
+    corcheteAbre    reduce using rule 58 (accesos -> accesos acceso .)
+    mas             reduce using rule 58 (accesos -> accesos acceso .)
+    menos           reduce using rule 58 (accesos -> accesos acceso .)
+    asterisco       reduce using rule 58 (accesos -> accesos acceso .)
+    division        reduce using rule 58 (accesos -> accesos acceso .)
+    residuo         reduce using rule 58 (accesos -> accesos acceso .)
+    andLogico       reduce using rule 58 (accesos -> accesos acceso .)
+    orLogico        reduce using rule 58 (accesos -> accesos acceso .)
+    xor             reduce using rule 58 (accesos -> accesos acceso .)
+    andBit          reduce using rule 58 (accesos -> accesos acceso .)
+    orBit           reduce using rule 58 (accesos -> accesos acceso .)
+    xorBit          reduce using rule 58 (accesos -> accesos acceso .)
+    desplazamientoIzquierda reduce using rule 58 (accesos -> accesos acceso .)
+    desplazamientoDerecha reduce using rule 58 (accesos -> accesos acceso .)
+    equivale        reduce using rule 58 (accesos -> accesos acceso .)
+    diferente       reduce using rule 58 (accesos -> accesos acceso .)
+    mayorIgual      reduce using rule 58 (accesos -> accesos acceso .)
+    menorIgual      reduce using rule 58 (accesos -> accesos acceso .)
+    mayor           reduce using rule 58 (accesos -> accesos acceso .)
+    menor           reduce using rule 58 (accesos -> accesos acceso .)
+    puntoComa       reduce using rule 58 (accesos -> accesos acceso .)
+    corcheteCierra  reduce using rule 58 (accesos -> accesos acceso .)
+    parentesisCierra reduce using rule 58 (accesos -> accesos acceso .)
+
+
+state 51
+
+    (60) acceso -> corcheteAbre expresion . corcheteCierra
+
+    corcheteCierra  shift and go to state 87
+
+
+state 52
+
+    (18) eliminar -> unset parentesisAbre registro . parentesisCierra puntoComa
+
+    parentesisCierra shift and go to state 88
+
+
+state 53
+
+    (19) imprimir -> print parentesisAbre expresion . parentesisCierra puntoComa
+
+    parentesisCierra shift and go to state 89
+
+
+state 54
+
+    (20) si -> if parentesisAbre expresion . parentesisCierra goto identificador puntoComa
+
+    parentesisCierra shift and go to state 90
+
+
+state 55
+
+    (57) valor -> registro accesos .
+    (58) accesos -> accesos . acceso
+    (60) acceso -> . corcheteAbre expresion corcheteCierra
+
+    mas             reduce using rule 57 (valor -> registro accesos .)
+    menos           reduce using rule 57 (valor -> registro accesos .)
+    asterisco       reduce using rule 57 (valor -> registro accesos .)
+    division        reduce using rule 57 (valor -> registro accesos .)
+    residuo         reduce using rule 57 (valor -> registro accesos .)
+    andLogico       reduce using rule 57 (valor -> registro accesos .)
+    orLogico        reduce using rule 57 (valor -> registro accesos .)
+    xor             reduce using rule 57 (valor -> registro accesos .)
+    andBit          reduce using rule 57 (valor -> registro accesos .)
+    orBit           reduce using rule 57 (valor -> registro accesos .)
+    xorBit          reduce using rule 57 (valor -> registro accesos .)
+    desplazamientoIzquierda reduce using rule 57 (valor -> registro accesos .)
+    desplazamientoDerecha reduce using rule 57 (valor -> registro accesos .)
+    equivale        reduce using rule 57 (valor -> registro accesos .)
+    diferente       reduce using rule 57 (valor -> registro accesos .)
+    mayorIgual      reduce using rule 57 (valor -> registro accesos .)
+    menorIgual      reduce using rule 57 (valor -> registro accesos .)
+    mayor           reduce using rule 57 (valor -> registro accesos .)
+    menor           reduce using rule 57 (valor -> registro accesos .)
+    puntoComa       reduce using rule 57 (valor -> registro accesos .)
+    corcheteCierra  reduce using rule 57 (valor -> registro accesos .)
+    parentesisCierra reduce using rule 57 (valor -> registro accesos .)
+    corcheteAbre    shift and go to state 28
+
+    acceso                         shift and go to state 50
+
+state 56
+
+    (16) asignacion -> registro igual expresion puntoComa .
+
+    identificador   reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    goto            reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    registro        reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    unset           reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    print           reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    if              reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    exit            reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+    $end            reduce using rule 16 (asignacion -> registro igual expresion puntoComa .)
+
+
+state 57
+
+    (22) expresion -> valor mas . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 91
+
+state 58
+
+    (23) expresion -> valor menos . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 92
+
+state 59
+
+    (24) expresion -> valor asterisco . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 93
+
+state 60
+
+    (25) expresion -> valor division . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 94
+
+state 61
+
+    (26) expresion -> valor residuo . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 95
+
+state 62
+
+    (27) expresion -> valor andLogico . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 96
+
+state 63
+
+    (28) expresion -> valor orLogico . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 97
+
+state 64
+
+    (29) expresion -> valor xor . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 98
+
+state 65
+
+    (30) expresion -> valor andBit . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 99
+
+state 66
+
+    (31) expresion -> valor orBit . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 100
+
+state 67
+
+    (32) expresion -> valor xorBit . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 101
+
+state 68
+
+    (33) expresion -> valor desplazamientoIzquierda . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 102
+
+state 69
+
+    (34) expresion -> valor desplazamientoDerecha . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 103
+
+state 70
+
+    (35) expresion -> valor equivale . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 104
+
+state 71
+
+    (36) expresion -> valor diferente . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 105
+
+state 72
+
+    (37) expresion -> valor mayorIgual . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 106
+
+state 73
+
+    (38) expresion -> valor menorIgual . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 107
+
+state 74
+
+    (39) expresion -> valor mayor . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 108
+
+state 75
+
+    (40) expresion -> valor menor . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 109
+
+state 76
+
+    (41) expresion -> menos valor .
+
+    puntoComa       reduce using rule 41 (expresion -> menos valor .)
+    corcheteCierra  reduce using rule 41 (expresion -> menos valor .)
+    parentesisCierra reduce using rule 41 (expresion -> menos valor .)
+
+
+state 77
+
+    (42) expresion -> andBit valor .
+
+    puntoComa       reduce using rule 42 (expresion -> andBit valor .)
+    corcheteCierra  reduce using rule 42 (expresion -> andBit valor .)
+    parentesisCierra reduce using rule 42 (expresion -> andBit valor .)
+
+
+state 78
+
+    (43) expresion -> negacionLogica valor .
+
+    puntoComa       reduce using rule 43 (expresion -> negacionLogica valor .)
+    corcheteCierra  reduce using rule 43 (expresion -> negacionLogica valor .)
+    parentesisCierra reduce using rule 43 (expresion -> negacionLogica valor .)
+
+
+state 79
+
+    (44) expresion -> negacionBit valor .
+
+    puntoComa       reduce using rule 44 (expresion -> negacionBit valor .)
+    corcheteCierra  reduce using rule 44 (expresion -> negacionBit valor .)
+    parentesisCierra reduce using rule 44 (expresion -> negacionBit valor .)
+
+
+state 80
+
+    (45) expresion -> read parentesisAbre . parentesisCierra
+
+    parentesisCierra shift and go to state 110
+
+
+state 81
+
+    (48) expresion -> parentesisAbre int . parentesisCierra valor
+
+    parentesisCierra shift and go to state 111
+
+
+state 82
+
+    (49) expresion -> parentesisAbre float . parentesisCierra valor
+
+    parentesisCierra shift and go to state 112
+
+
+state 83
+
+    (50) expresion -> parentesisAbre char . parentesisCierra valor
+
+    parentesisCierra shift and go to state 113
+
+
+state 84
+
+    (46) expresion -> abs parentesisAbre . valor parentesisCierra
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 114
+
+state 85
+
+    (47) expresion -> array parentesisAbre . parentesisCierra
+
+    parentesisCierra shift and go to state 115
+
+
+state 86
+
+    (17) asignacion_arreglo -> registro accesos igual expresion . puntoComa
+
+    puntoComa       shift and go to state 116
+
+
+state 87
+
+    (60) acceso -> corcheteAbre expresion corcheteCierra .
+
+    igual           reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    corcheteAbre    reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    mas             reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    menos           reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    asterisco       reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    division        reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    residuo         reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    andLogico       reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    orLogico        reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    xor             reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    andBit          reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    orBit           reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    xorBit          reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    desplazamientoIzquierda reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    desplazamientoDerecha reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    equivale        reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    diferente       reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    mayorIgual      reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    menorIgual      reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    mayor           reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    menor           reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    puntoComa       reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    corcheteCierra  reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+    parentesisCierra reduce using rule 60 (acceso -> corcheteAbre expresion corcheteCierra .)
+
+
+state 88
+
+    (18) eliminar -> unset parentesisAbre registro parentesisCierra . puntoComa
+
+    puntoComa       shift and go to state 117
+
+
+state 89
+
+    (19) imprimir -> print parentesisAbre expresion parentesisCierra . puntoComa
+
+    puntoComa       shift and go to state 118
+
+
+state 90
+
+    (20) si -> if parentesisAbre expresion parentesisCierra . goto identificador puntoComa
+
+    goto            shift and go to state 119
+
+
+state 91
+
+    (22) expresion -> valor mas valor .
+
+    puntoComa       reduce using rule 22 (expresion -> valor mas valor .)
+    corcheteCierra  reduce using rule 22 (expresion -> valor mas valor .)
+    parentesisCierra reduce using rule 22 (expresion -> valor mas valor .)
+
+
+state 92
+
+    (23) expresion -> valor menos valor .
+
+    puntoComa       reduce using rule 23 (expresion -> valor menos valor .)
+    corcheteCierra  reduce using rule 23 (expresion -> valor menos valor .)
+    parentesisCierra reduce using rule 23 (expresion -> valor menos valor .)
+
+
+state 93
+
+    (24) expresion -> valor asterisco valor .
+
+    puntoComa       reduce using rule 24 (expresion -> valor asterisco valor .)
+    corcheteCierra  reduce using rule 24 (expresion -> valor asterisco valor .)
+    parentesisCierra reduce using rule 24 (expresion -> valor asterisco valor .)
+
+
+state 94
+
+    (25) expresion -> valor division valor .
+
+    puntoComa       reduce using rule 25 (expresion -> valor division valor .)
+    corcheteCierra  reduce using rule 25 (expresion -> valor division valor .)
+    parentesisCierra reduce using rule 25 (expresion -> valor division valor .)
+
+
+state 95
+
+    (26) expresion -> valor residuo valor .
+
+    puntoComa       reduce using rule 26 (expresion -> valor residuo valor .)
+    corcheteCierra  reduce using rule 26 (expresion -> valor residuo valor .)
+    parentesisCierra reduce using rule 26 (expresion -> valor residuo valor .)
+
+
+state 96
+
+    (27) expresion -> valor andLogico valor .
+
+    puntoComa       reduce using rule 27 (expresion -> valor andLogico valor .)
+    corcheteCierra  reduce using rule 27 (expresion -> valor andLogico valor .)
+    parentesisCierra reduce using rule 27 (expresion -> valor andLogico valor .)
+
+
+state 97
+
+    (28) expresion -> valor orLogico valor .
+
+    puntoComa       reduce using rule 28 (expresion -> valor orLogico valor .)
+    corcheteCierra  reduce using rule 28 (expresion -> valor orLogico valor .)
+    parentesisCierra reduce using rule 28 (expresion -> valor orLogico valor .)
+
+
+state 98
+
+    (29) expresion -> valor xor valor .
+
+    puntoComa       reduce using rule 29 (expresion -> valor xor valor .)
+    corcheteCierra  reduce using rule 29 (expresion -> valor xor valor .)
+    parentesisCierra reduce using rule 29 (expresion -> valor xor valor .)
+
+
+state 99
+
+    (30) expresion -> valor andBit valor .
+
+    puntoComa       reduce using rule 30 (expresion -> valor andBit valor .)
+    corcheteCierra  reduce using rule 30 (expresion -> valor andBit valor .)
+    parentesisCierra reduce using rule 30 (expresion -> valor andBit valor .)
+
+
+state 100
+
+    (31) expresion -> valor orBit valor .
+
+    puntoComa       reduce using rule 31 (expresion -> valor orBit valor .)
+    corcheteCierra  reduce using rule 31 (expresion -> valor orBit valor .)
+    parentesisCierra reduce using rule 31 (expresion -> valor orBit valor .)
+
+
+state 101
+
+    (32) expresion -> valor xorBit valor .
+
+    puntoComa       reduce using rule 32 (expresion -> valor xorBit valor .)
+    corcheteCierra  reduce using rule 32 (expresion -> valor xorBit valor .)
+    parentesisCierra reduce using rule 32 (expresion -> valor xorBit valor .)
+
+
+state 102
+
+    (33) expresion -> valor desplazamientoIzquierda valor .
+
+    puntoComa       reduce using rule 33 (expresion -> valor desplazamientoIzquierda valor .)
+    corcheteCierra  reduce using rule 33 (expresion -> valor desplazamientoIzquierda valor .)
+    parentesisCierra reduce using rule 33 (expresion -> valor desplazamientoIzquierda valor .)
+
+
+state 103
+
+    (34) expresion -> valor desplazamientoDerecha valor .
+
+    puntoComa       reduce using rule 34 (expresion -> valor desplazamientoDerecha valor .)
+    corcheteCierra  reduce using rule 34 (expresion -> valor desplazamientoDerecha valor .)
+    parentesisCierra reduce using rule 34 (expresion -> valor desplazamientoDerecha valor .)
+
+
+state 104
+
+    (35) expresion -> valor equivale valor .
+
+    puntoComa       reduce using rule 35 (expresion -> valor equivale valor .)
+    corcheteCierra  reduce using rule 35 (expresion -> valor equivale valor .)
+    parentesisCierra reduce using rule 35 (expresion -> valor equivale valor .)
+
+
+state 105
+
+    (36) expresion -> valor diferente valor .
+
+    puntoComa       reduce using rule 36 (expresion -> valor diferente valor .)
+    corcheteCierra  reduce using rule 36 (expresion -> valor diferente valor .)
+    parentesisCierra reduce using rule 36 (expresion -> valor diferente valor .)
+
+
+state 106
+
+    (37) expresion -> valor mayorIgual valor .
+
+    puntoComa       reduce using rule 37 (expresion -> valor mayorIgual valor .)
+    corcheteCierra  reduce using rule 37 (expresion -> valor mayorIgual valor .)
+    parentesisCierra reduce using rule 37 (expresion -> valor mayorIgual valor .)
+
+
+state 107
+
+    (38) expresion -> valor menorIgual valor .
+
+    puntoComa       reduce using rule 38 (expresion -> valor menorIgual valor .)
+    corcheteCierra  reduce using rule 38 (expresion -> valor menorIgual valor .)
+    parentesisCierra reduce using rule 38 (expresion -> valor menorIgual valor .)
+
+
+state 108
+
+    (39) expresion -> valor mayor valor .
+
+    puntoComa       reduce using rule 39 (expresion -> valor mayor valor .)
+    corcheteCierra  reduce using rule 39 (expresion -> valor mayor valor .)
+    parentesisCierra reduce using rule 39 (expresion -> valor mayor valor .)
+
+
+state 109
+
+    (40) expresion -> valor menor valor .
+
+    puntoComa       reduce using rule 40 (expresion -> valor menor valor .)
+    corcheteCierra  reduce using rule 40 (expresion -> valor menor valor .)
+    parentesisCierra reduce using rule 40 (expresion -> valor menor valor .)
+
+
+state 110
+
+    (45) expresion -> read parentesisAbre parentesisCierra .
+
+    puntoComa       reduce using rule 45 (expresion -> read parentesisAbre parentesisCierra .)
+    corcheteCierra  reduce using rule 45 (expresion -> read parentesisAbre parentesisCierra .)
+    parentesisCierra reduce using rule 45 (expresion -> read parentesisAbre parentesisCierra .)
+
+
+state 111
+
+    (48) expresion -> parentesisAbre int parentesisCierra . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 120
+
+state 112
+
+    (49) expresion -> parentesisAbre float parentesisCierra . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 121
+
+state 113
+
+    (50) expresion -> parentesisAbre char parentesisCierra . valor
+    (52) valor -> . entero
+    (53) valor -> . cadena
+    (54) valor -> . caracter
+    (55) valor -> . decimal
+    (56) valor -> . registro
+    (57) valor -> . registro accesos
+
+    entero          shift and go to state 45
+    cadena          shift and go to state 46
+    caracter        shift and go to state 47
+    decimal         shift and go to state 48
+    registro        shift and go to state 34
+
+    valor                          shift and go to state 122
+
+state 114
+
+    (46) expresion -> abs parentesisAbre valor . parentesisCierra
+
+    parentesisCierra shift and go to state 123
+
+
+state 115
+
+    (47) expresion -> array parentesisAbre parentesisCierra .
+
+    puntoComa       reduce using rule 47 (expresion -> array parentesisAbre parentesisCierra .)
+    corcheteCierra  reduce using rule 47 (expresion -> array parentesisAbre parentesisCierra .)
+    parentesisCierra reduce using rule 47 (expresion -> array parentesisAbre parentesisCierra .)
+
+
+state 116
+
+    (17) asignacion_arreglo -> registro accesos igual expresion puntoComa .
+
+    identificador   reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    goto            reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    registro        reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    unset           reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    print           reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    if              reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    exit            reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+    $end            reduce using rule 17 (asignacion_arreglo -> registro accesos igual expresion puntoComa .)
+
+
+state 117
+
+    (18) eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .
+
+    identificador   reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    goto            reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    registro        reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    unset           reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    print           reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    if              reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    exit            reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+    $end            reduce using rule 18 (eliminar -> unset parentesisAbre registro parentesisCierra puntoComa .)
+
+
+state 118
+
+    (19) imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .
+
+    identificador   reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    goto            reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    registro        reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    unset           reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    print           reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    if              reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    exit            reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+    $end            reduce using rule 19 (imprimir -> print parentesisAbre expresion parentesisCierra puntoComa .)
+
+
+state 119
+
+    (20) si -> if parentesisAbre expresion parentesisCierra goto . identificador puntoComa
+
+    identificador   shift and go to state 124
+
+
+state 120
+
+    (48) expresion -> parentesisAbre int parentesisCierra valor .
+
+    puntoComa       reduce using rule 48 (expresion -> parentesisAbre int parentesisCierra valor .)
+    corcheteCierra  reduce using rule 48 (expresion -> parentesisAbre int parentesisCierra valor .)
+    parentesisCierra reduce using rule 48 (expresion -> parentesisAbre int parentesisCierra valor .)
+
+
+state 121
+
+    (49) expresion -> parentesisAbre float parentesisCierra valor .
+
+    puntoComa       reduce using rule 49 (expresion -> parentesisAbre float parentesisCierra valor .)
+    corcheteCierra  reduce using rule 49 (expresion -> parentesisAbre float parentesisCierra valor .)
+    parentesisCierra reduce using rule 49 (expresion -> parentesisAbre float parentesisCierra valor .)
+
+
+state 122
+
+    (50) expresion -> parentesisAbre char parentesisCierra valor .
+
+    puntoComa       reduce using rule 50 (expresion -> parentesisAbre char parentesisCierra valor .)
+    corcheteCierra  reduce using rule 50 (expresion -> parentesisAbre char parentesisCierra valor .)
+    parentesisCierra reduce using rule 50 (expresion -> parentesisAbre char parentesisCierra valor .)
+
+
+state 123
+
+    (46) expresion -> abs parentesisAbre valor parentesisCierra .
+
+    puntoComa       reduce using rule 46 (expresion -> abs parentesisAbre valor parentesisCierra .)
+    corcheteCierra  reduce using rule 46 (expresion -> abs parentesisAbre valor parentesisCierra .)
+    parentesisCierra reduce using rule 46 (expresion -> abs parentesisAbre valor parentesisCierra .)
+
+
+state 124
+
+    (20) si -> if parentesisAbre expresion parentesisCierra goto identificador . puntoComa
+
+    puntoComa       shift and go to state 125
+
+
+state 125
+
+    (20) si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .
+
+    identificador   reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    goto            reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    registro        reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    unset           reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    print           reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    if              reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    exit            reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+    $end            reduce using rule 20 (si -> if parentesisAbre expresion parentesisCierra goto identificador puntoComa .)
+

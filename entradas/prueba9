@@ -1,0 +1,10 @@
+main:
+print("Ingrese el primer numero: ");
+$t0 = read();
+print("Ingrese el segundo numero: ");
+$t1 = read();
+print("El resultado de la suma es: ");
+print($t0 + $t1);
+print("\n");
+print("Adios");
+ 

@@ -1,0 +1,72 @@
+INICIO  >   main: CUERPO
+
+CUERPO  > INSTRUCCIONES
+        | 
+
+
+INSTRUCCIONES   >   INSTRUCCIONES INSTRUCCION
+                |   INSTRUCCION
+
+-----DESC
+INSTRUCCIONES   >       INSTRUCCION INSTRUCCIONES_P
+INSTRUCCIONES_P >       INSTRUCCION INSTRUCCIONES_P
+                |
+-----DESC
+
+INSTRUCCION >   identificador :
+            |   goto identificador ;
+            |   registro = EXPRESION ;
+            |   registro ACCESOS = EXPRESION ;
+            |   unset ( registro ) ;
+            |   print ( EXPRESION ) ;
+            |   if ( EXPRESION ) goto identificador ;
+            |   exit ;
+
+EXPRESION   >   VALOR + VALOR
+            |   VALOR - VALOR
+            |   VALOR * VALOR
+            |   VALOR / VALOR
+            |   VALOR % VALOR
+            |   VALOR && VALOR
+            |   VALOR || VALOR
+            |   VALOR xor VALOR
+            |   VALOR & VALOR
+            |   VALOR | VALOR
+            |   VALOR ^ VALOR
+            |   VALOR << VALOR
+            |   VALOR >> VALOR
+            |   VALOR == VALOR
+            |   VALOR != VALOR
+            |   VALOR >= VALOR
+            |   VALOR <= VALOR
+            |   VALOR > VALOR
+            |   VALOR < VALOR
+            |   - VALOR
+            |   & VALOR
+            |   read()
+            |   ( int ) VALOR
+            |   ( float ) VALOR
+            |   ( char ) VALOR
+            |   abs ( VALOR )
+            |   ! VALOR
+            |   ~ VALOR
+            |   array()
+            |   VALOR
+
+VALOR   >   entero
+        |   cadena
+        |   caracter
+        |   decimal
+        |   registro
+        |   registro ACCESOS 
+
+ACCESOS >   ACCESOS ACCESO
+        |   ACCESO
+
+-----DESC-----
+ACCESOS         >       ACCESO ACCESOS_P
+ACCESOS_P       >       ACCESO ACCESOS_P
+                |
+-----DESC-----
+
+ACCESO  >   [EXPRESION]

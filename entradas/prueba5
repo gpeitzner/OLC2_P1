@@ -1,0 +1,38 @@
+main:
+$s0 = array();
+$sp = -1;
+$a0 = 3;
+$a1 = 3;
+$sp = $sp + 1;
+$s0[$sp]= $a0;
+goto ack;
+ret0:
+print($v0);
+exit;
+ack:
+if ($sp<0) goto ret3;
+$a0 = $s0[$sp];
+$sp = $sp - 1;
+if ($a0!=0) goto ret1;
+$t4 = $a0 + 1;
+$a1 = $a1 + $t4;
+goto ack;
+ret1:
+if ($a1!=0) goto ret2;
+$a1 = $a1 + 1;
+$a0 = $a0 - 1;
+$sp = $sp + 1;
+$s0[$sp] = $a0;
+goto ack;
+ret2:
+$a0 = $a0 - 1;
+$sp = $sp + 1;
+$s0[$sp] = $a0;
+$a0 = $a0 + 1;
+$sp = $sp + 1;
+$s0[$sp] = $a0;
+$a1 = $a1 - 1;
+goto ack;
+ret3:
+$v0 = $a1;
+goto ret0;

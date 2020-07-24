@@ -1,0 +1,4 @@
+main:
+$t1 = 10;
+print("hola");
+exit;

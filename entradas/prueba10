@@ -1,0 +1,5 @@
+main:
+$t0 = array();
+$t0[0][1] = "hola mundo";
+$t0[0][1][15] = 'p';
+print($t0[0][1]);

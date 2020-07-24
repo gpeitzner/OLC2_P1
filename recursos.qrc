@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/imagenes">
+    <file>imagenes/icons8-code-48.png</file>
+  </qresource>
+</RCC>

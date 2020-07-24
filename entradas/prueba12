@@ -1,0 +1,4 @@
+main:
+$t1 = array():
+$t1[3] = 0;
+print($t1);
