@@ -1,1 +1,2 @@
-# OLC_Proyecto1
+# OLC_P1
+Compilator with PLY.
